@@ -11,17 +11,29 @@ SQL assessment platform built with:
 ## Architecture
 
 Frontend
+
 ↓
+
 Node API
+
 ↓
+
 Redis Queue
+
 ↓
+
 Go Sandbox
 
-Node API
-↓
-PostgreSQL
 
 Node API
+
 ↓
+
+PostgreSQL
+
+
+Node API
+
+↓
+
 ML Service
