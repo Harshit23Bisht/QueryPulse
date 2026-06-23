@@ -1,0 +1,32 @@
+services:
+  node-api:
+    build: ./backend-node
+    command: node server.js
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+
+  node-worker:
+    build: ./backend-node
+    command: node worker.js
+    depends_on:
+      - redis
+      - go-service
+
+  go-service:
+    build: ./backend-go
+    ports:
+      - "8081:8081"
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
